@@ -1,13 +1,13 @@
 /*
-XsChat v7.0.2 Client BootStrapper
+XsChat v7.0.3 Client BootStrapper
 ---------------------------------
-7.0.2 Hot-Patch
+7.0.3 Stability Fix | Developer Beta 1
 ---------------------------------
 (c) speedyplane2247 2019
 */
 // CORE VARS
 var $enc = new Object();
-$enc.version = 702
+$enc.version = 703
 $enc.build  = 1
 // VERSION CHECKING
 var xhttp = new XMLHttpRequest();
@@ -20,9 +20,8 @@ xhttp.onreadystatechange = function() {
 };
 xhttp.open("GET", "https://speedyplane2247.github.io/xs/ver.x", true);
 xhttp.send();
-// CONTINUE (LEGACY)
 if (navigator.userAgent.indexOf("Firefox") == -1) {
-    console.warn("XsChat v7.0.2 reccomends Firefox for easier data transfer.")
+    console.warn("XsChat v7.0.3 reccomends Firefox for easier data transfer.")
     $enc.isRunningFireFox = 0
 } else {
     $enc.isRunningFireFox = 1
@@ -32,6 +31,7 @@ function init() {
 $enc.message = document.getElementById("message_1").value
 }
 function xencrypt() {
+    try {
     $enc.encs1 = split($enc.message)
     $enc.encs2 = btoa($enc.encs1)
     if ($enc.doTheFox == 1) {
@@ -39,9 +39,13 @@ function xencrypt() {
     } else {
         alert($enc.encs2)
         console.log($enc.encs2)
+    }} catch(e) {
+        alert("An error occured while encrypting. This may be because of invalid characters in your statement. See the console for details.")
+        Console.warn("XsChat ran into error: "+e)
     }
 }
 function xdecrypt() {
+    try {
     $enc.dencs2 = atob($enc.message)
     $enc.dencs4 = join($enc.dencs2)
     if ($enc.doTheFox == 1) {
@@ -50,6 +54,10 @@ function xdecrypt() {
         alert($enc.dencs4)
         console.log($enc.dencs4)
     }
+} catch(e) {
+    alert("An error occured while decrypting. This may be because you are missing a letter, the message contains invalid characters, or a programming error. See the console for details.")
+    Console.warn("XsChat ran into error: "+e)
+}
 }
 /*
 Thank you https://codereview.stackexchange.com/questions/173562/simple-string-scrambling 

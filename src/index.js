@@ -1,14 +1,13 @@
 /*
 XsChat v7.0.3 Client BootStrapper
 ---------------------------------
-7.0.3 Stability Fix | Developer Beta 1
+7.0.3 Stability Fix | Developer Beta 2
 ---------------------------------
 (c) speedyplane2247 2019
 */
 // CORE VARS
 var $enc = new Object();
 $enc.version = 703
-$enc.build  = 1
 // VERSION CHECKING
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {

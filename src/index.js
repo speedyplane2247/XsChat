@@ -1,16 +1,31 @@
 /*
-XsChat v7.0.1 Client BootStrapper
+XsChat v7.0.2 Client BootStrapper
 ---------------------------------
-7.0.1 Patch Update
+7.0.2 Hot-Patch
 ---------------------------------
 (c) speedyplane2247 2019
 */
+// CORE VARS
 var $enc = new Object();
+$enc.version = 702
+$enc.build  = 1
+// VERSION CHECKING
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       if (parseInt(xhttp.responseText) > $enc.version) {
+           alert("Note: You are running an older build of XsChat. There is a later version available.")
+       }
+    }
+};
+xhttp.open("GET", "https://speedyplane2247.github.io/xs/ver.x", true);
+xhttp.send();
+// CONTINUE (LEGACY)
 if (navigator.userAgent.indexOf("Firefox") == -1) {
-    console.warn("XsChat v7.0.1 reccomends Firefox for easier data transfer.")
-    $enc.doTheFox = 0
+    console.warn("XsChat v7.0.2 reccomends Firefox for easier data transfer.")
+    $enc.isRunningFireFox = 0
 } else {
-    $enc.doTheFox = 1
+    $enc.isRunningFireFox = 1
 }
 
 function init() {
@@ -38,7 +53,7 @@ function xdecrypt() {
 }
 /*
 Thank you https://codereview.stackexchange.com/questions/173562/simple-string-scrambling 
-OwChallie is a thank you men!
+Thanks to OwCharlie!
 */
 const split = (text) => {
     let n = Math.floor(text.length / 2)

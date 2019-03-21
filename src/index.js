@@ -1,7 +1,7 @@
 /*
 XsChat v7.0.2 Client BootStrapper
 ---------------------------------
-7.0.2 Hot-Patch
+7.0.2 Hot-Patch | Patch #1
 ---------------------------------
 (c) speedyplane2247 2019
 */
@@ -34,7 +34,7 @@ $enc.message = document.getElementById("message_1").value
 function xencrypt() {
     $enc.encs1 = split($enc.message)
     $enc.encs2 = btoa($enc.encs1)
-    if ($enc.doTheFox == 1) {
+    if ($enc.isRunningFireFox == 1) {
         alert($enc.encs2)
     } else {
         alert($enc.encs2)
@@ -44,7 +44,7 @@ function xencrypt() {
 function xdecrypt() {
     $enc.dencs2 = atob($enc.message)
     $enc.dencs4 = join($enc.dencs2)
-    if ($enc.doTheFox == 1) {
+    if ($enc.isRunningFireFox == 1) {
         alert(join($enc.dencs4))
     } else {
         alert($enc.dencs4)

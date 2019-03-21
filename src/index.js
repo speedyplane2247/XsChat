@@ -1,17 +1,13 @@
 /*
 XsChat v7.0.0 Client BootStrapper
 ---------------------------------
-Developer Beta 9
+RTM Build: No Patches
 ---------------------------------
 (c) speedyplane2247 2019
 */
-if (document.cookie.indexOf("didaccept") == -1) {
-    alert("We are having some problems with encryption. For the time being, older engines will be used for temporary encryption / decryption.")
-    document.cookie = "ok=didaccept"
-}
 var $enc = new Object();
 if (navigator.userAgent.indexOf("Firefox") == -1) {
-    alert("XsChat v7.0.0 reccomends Firefox for easier data transfer.")
+    console.warn("XsChat v7.0.0 reccomends Firefox for easier data transfer.")
     $enc.doTheFox = 0
 } else {
     $enc.doTheFox = 1
@@ -27,7 +23,7 @@ function xencrypt() {
     if ($enc.doTheFox == 1) {
         alert($enc.encs2)
     } else {
-        alert("Your browser is in limited support, and the encrypted string was printed in Console.")
+        alert($enc.encs2)
         console.log($enc.encs2)
     }
 }
@@ -37,7 +33,7 @@ function xdecrypt() {
     if ($enc.doTheFox == 1) {
         alert(join($enc.dencs4))
     } else {
-        alert("Your browser is in limited support, and the encrypted string was printed in Console.")
+        alert($enc.dencs4)
         console.log($enc.dencs4)
     }
 }

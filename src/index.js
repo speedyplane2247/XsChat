@@ -5,17 +5,11 @@ Developer Beta 9
 ---------------------------------
 (c) speedyplane2247 2019
 */
-//var $enc = new Object();
-//var encrypt = CryptoJS.AES.encrypt
-//var decrypt = CryptoJS.AES.encrypt
 if (document.cookie.indexOf("didaccept") == -1) {
     alert("We are having some problems with encryption. For the time being, older engines will be used for temporary encryption / decryption.")
     document.cookie = "ok=didaccept"
-} else {
-    // do nothing
 }
 var $enc = new Object();
-//$enc.window.crypto.subtle.encrypt
 if (navigator.userAgent.indexOf("Firefox") == -1) {
     alert("XsChat v7.0.0 reccomends Firefox for easier data transfer.")
     $enc.doTheFox = 0
@@ -40,9 +34,6 @@ function xencrypt() {
 function xdecrypt() {
     $enc.dencs2 = atob($enc.message)
     $enc.dencs4 = join($enc.dencs2)
- //   $enc.dencs4 = atob($enc.dencs1)
-   // $enc.dencs3 = atob($enc.)
-  //  $enc.dencs4 = join($enc.dencs2)
     if ($enc.doTheFox == 1) {
         alert(join($enc.dencs4))
     } else {
@@ -53,7 +44,6 @@ function xdecrypt() {
 /*
 Thank you https://codereview.stackexchange.com/questions/173562/simple-string-scrambling 
 OwChallie is a thank you men!
-
 */
 const split = (text) => {
     let n = Math.floor(text.length / 2)

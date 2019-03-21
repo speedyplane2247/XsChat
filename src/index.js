@@ -1,13 +1,13 @@
 /*
-XsChat v7.0.0 Client BootStrapper
+XsChat v7.0.1 Client BootStrapper
 ---------------------------------
-RTM Build: No Patches
+7.0.1 Patch Update
 ---------------------------------
 (c) speedyplane2247 2019
 */
 var $enc = new Object();
 if (navigator.userAgent.indexOf("Firefox") == -1) {
-    console.warn("XsChat v7.0.0 reccomends Firefox for easier data transfer.")
+    console.warn("XsChat v7.0.1 reccomends Firefox for easier data transfer.")
     $enc.doTheFox = 0
 } else {
     $enc.doTheFox = 1
@@ -15,7 +15,6 @@ if (navigator.userAgent.indexOf("Firefox") == -1) {
 
 function init() {
 $enc.message = document.getElementById("message_1").value
-$enc.key = document.getElementById("key_1").value
 }
 function xencrypt() {
     $enc.encs1 = split($enc.message)

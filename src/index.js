@@ -1,7 +1,7 @@
 /*
 XsChat v7.0.0 Client BootStrapper
 ---------------------------------
-Developer Beta 3
+Developer Beta 4
 ---------------------------------
 (c) speedyplane2247 2019
 */
@@ -9,8 +9,8 @@ Developer Beta 3
 //var encrypt = CryptoJS.AES.encrypt
 //var decrypt = CryptoJS.AES.encrypt
 var $enc = new Object();
-if (navigator.userAgent.Contains("Firefox") != true) {
-    alert("XsChat v7 reccomends firefox for easier data transfer.")
+if (navigator.userAgent.indexOf("Firefox") == -1) {
+    alert("XsChat v7.0.0 reccomends firefox for easier data transfer.")
     $enc.doTheFox = 0
 } else {
     $enc.doTheFox = 1

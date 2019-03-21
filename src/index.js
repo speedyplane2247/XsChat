@@ -1,7 +1,7 @@
 /*
 XsChat v7.0.1 Client BootStrapper
 ---------------------------------
-Release Candidate 1
+7.0.1 Patch Update
 ---------------------------------
 (c) speedyplane2247 2019
 */

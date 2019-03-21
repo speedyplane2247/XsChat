@@ -1,40 +1,46 @@
 /*
 XsChat v7.0.0 Client BootStrapper
 ---------------------------------
-Developer Beta 5
+Developer Beta 6
 ---------------------------------
 (c) speedyplane2247 2019
 */
 //var $enc = new Object();
 //var encrypt = CryptoJS.AES.encrypt
 //var decrypt = CryptoJS.AES.encrypt
+if (document.cookie.indexOf("didaccept") == -1) {
+    alert("We are having some problems with encryption. For the time being, older engines will be used for temporary encryption / decryption.")
+    document.cookie = "ok=didaccept"
+} else {
+    // do nothing
+}
 var $enc = new Object();
 if (navigator.userAgent.indexOf("Firefox") == -1) {
-    alert("XsChat v7.0.0 reccomends firefox for easier data transfer.")
+    alert("XsChat v7.0.0 reccomends Firefox for easier data transfer.")
     $enc.doTheFox = 0
 } else {
     $enc.doTheFox = 1
 }
 
 function init() {
-$enc.message = document.getElementById("data_1").value
-$enc.key = document.getElementBydId("key_1").value
+$enc.message = document.getElementById("message_1").value
+$enc.key = document.getElementById("key_1").value
 }
 function encrypt() {
-var encryptedAES = CryptoJS.AES.encrypt($enc.message, $enc.key);
-if (doTheFox == 1) {
-alert(encryptedAES)
+encryptedAES = btoa($enc.message)// CryptoJS.AES.encrypt($enc.message, $enc.key);
+if ($enc.doTheFox == 1) {
+alert(encryptedAES)//.toString(CryptoJS.enc.Utf8))
 } else {
 alert("Your browser is not optimized for XsChat and the data has been printed to the console.")
-console.log(encryptedAES)
+console.log(String(encryptedAES))
 }
 }
 function decrypt() {
-    var decryptedBytes = CryptoJS.AES.decrypt($enc.message, $enc.key);
-    if (doTheFox == 1) {
-    alert(decryptedBytes.toString(CryptoJS.enc.Utf8))
+    decryptedBytes = atob(encryptedAES)//CryptoJS.AES.decrypt($enc.message, $enc.key);
+    if ($enc.doTheFox == 1) {
+    alert(decryptedBytes)//.toString(CryptoJS.enc.Utf8))
     } else {
         alert("Your browser is not optimized for XsChat and the data has been printed to console.")
-        console.log(decryptedBytes.toString(CryptoJS.enc.Utf8))
+        console.log(String(decryptedBytes))
     }
 }

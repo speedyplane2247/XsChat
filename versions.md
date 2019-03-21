@@ -12,8 +12,11 @@ Working on for LTS, not main focus.
 ### Why No Encryption?
 True encryption would be very difficult to easily pull of, and it also discourages using this product for other larger uses that require security.
 ## Engine 6.3.0
+6.3.0 is the 7.0.3 engine, and introduces a few minor changes, including error catching.
 ## Engine 6.3.1
+6.3.1 is the 7.0.4 engine, with basic footer support.
 ## Engine 6.3.2
+6.3.2. is the 7.1.x engine, with full header & footer support.
 # Client Builds
 Here is a list of clients (of note)
 ## 7.0.0 DB 2-5

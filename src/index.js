@@ -1,13 +1,13 @@
 /*
 XsChat v7.0.3 Client BootStrapper
 ---------------------------------
-7.0.3 Stability Fix
+7.1.2 KeyChain Update
 ---------------------------------
 (c) speedyplane2247 2019
 */
 // CORE VARS
 var $enc = new Object();
-$enc.version = 703
+$enc.version = 711
 // VERSION CHECKING
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
@@ -20,7 +20,7 @@ xhttp.onreadystatechange = function() {
 xhttp.open("GET", "https://speedyplane2247.github.io/xs/ver.x", true);
 xhttp.send();
 if (navigator.userAgent.indexOf("Firefox") == -1) {
-    console.warn("XsChat v7.0.3 recomends Firefox for easier data transfer.")
+    console.warn("XsChat v7.1.1 recomends Firefox for easier data transfer.")
     $enc.isRunningFireFox = 0
 } else {
     $enc.isRunningFireFox = 1
@@ -31,16 +31,17 @@ $enc.message = document.getElementById("message_1").value
 }
 function xencrypt() {
     try {
-    $enc.encs1 = split($enc.message)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=7.1.1\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\n###\nBEGIN ENCRYPTED MESSAGE\n"+$enc.message+"\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n###\nEND FULL TEXT")
     $enc.encs2 = btoa($enc.encs1)
+    $enc.encs3 = btoa($enc.encs2)
     if ($enc.isRunningFireFox == 1) {
-        alert($enc.encs2)
+        alert($enc.encs3)
     } else {
-        alert($enc.encs2)
-        console.log($enc.encs2)
+        alert($enc.encs3)
+        console.log($enc.encs3)
     }
-    $enc.dencs2 = atob($enc.encs2)
-    $enc.dencs4 = join($enc.dencs2)
+   // $enc.dencs2 = atob($enc.encs2)
+  //  $enc.dencs4 = join($enc.dencs2)
 
 }
      catch(e) {
@@ -50,7 +51,8 @@ function xencrypt() {
 }
 function xdecrypt() {
     try {
-    $enc.dencs2 = atob($enc.message)
+    $enc.dencs3 = atob($enc.message)
+    $enc.dencs2 = atob($enc.dencs3)
     $enc.dencs4 = join($enc.dencs2)
     if ($enc.isRunningFireFox == 1) {
         alert($enc.dencs4)

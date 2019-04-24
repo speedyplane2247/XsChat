@@ -54,4 +54,16 @@ Or, if you perfer the raw data (works on 7.x)
 ```
 I0JHTkhBRSBBQSMjQ2luOlhDYVZATgojRURIQUUgQUEjCiNCR05VRSBFU0cjI0VhcGVkdC4uIyNOIFNSTVNBRSMKI0JHTkZPRSBFU0cjI1NuZSBub210bzpYQ2EgNzEwIyNOIE9UUk1TQUUjCiNFQVkjIyNFSSBFRFJEVCAjCmxldCBzaHQ3RUMjI04gRURSRFQjIyMjRUkgU1JNU0FFIwp4bWwgYWEuCiNFRFVFIEVTRyMjIyNFSSBPVFJNU0FFIwplZHJJZnJhaW4gc2h0Vi4uCiNFREZPRSBFU0cjIyNMR0Mj
 ```
-
+## 7.1
+7.1 was never seen, but it was the fix before 7.1.1.
+## 7.1.1
+The first released variant with header support on 7.x
+## 7.1.2
+This variant was a specilized engine for private use, but was never actually used.
+## 7.1.3
+This variant was an encryption-only variant for sending secure tips.
+## 8.0.0
+This adds a new 7.1.2-based encryption variant, with channel support. They are client-protected, so a proper patched decryptor that ignores channels, can easily be bypassed.
+## 8.0.1
+This update adds 7 new channels, and updates the CSS.
+## 8.0.1

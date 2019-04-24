@@ -66,4 +66,9 @@ This variant was an encryption-only variant for sending secure tips.
 This adds a new 7.1.2-based encryption variant, with channel support. They are client-protected, so a proper patched decryptor that ignores channels, can easily be bypassed.
 ## 8.0.1
 This update adds 7 new channels, and updates the CSS.
-## 8.0.1
+## 8.1
+This update adds a user-defined password, getting rid of the 'Channels'. This is still basically channels, but just user-definable, and you can't brute-force it through the UI (you still can through JavaScript). This version can no longer be used without modification due to a large security bug that was patched in 8.1.1.
+## 8.1.1
+This update introduces the new versioning system in the what is supported, and fixes a key security vulnerability with shorter passwords. This also fixes 7.1.2 and 7.1.1 backwords compatibility.
+## 8.1.1a
+This update simply changes the name of "index.html" to be more user friendly.

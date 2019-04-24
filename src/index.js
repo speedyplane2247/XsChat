@@ -1,11 +1,11 @@
 // XsChat 8 Client
 // (c) speedyplane2247 2019
-// Version: 8.0.1
+// Version: 8.1.1
 var $xsui = new Object()
 var $enc = new Object()
 var $xs = new Object()
-$xs.version = "XsChat 8.0.1\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.3.1"
-$xs.cver = "801"
+$xs.version = "XsChat 8.1.1\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.3.1"
+$xs.cver = "811"
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -20,7 +20,7 @@ xhttp.send();
 
 $xs.x800 = new Object()
 $xs.x800.encrypt = function (data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.0.1\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\nchan="+channel)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.1.0\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!="+channel)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs2 = btoa($enc.encs21)
@@ -35,8 +35,8 @@ $xs.x800.decrypt = function (data, channel) {
         $enc.dencs11 = atob($enc.dencs10)
         
         $enc.dencs4 = join($enc.dencs11)
-        if ($enc.dencs4.indexOf(channel) == -1) {
-        alert("Invalid Channel!")
+        if ($enc.dencs4.indexOf("pass***!="+channel) == -1) {
+        alert("Invalid Password!")
         } else {
         alert($enc.dencs4)
         }
@@ -49,9 +49,9 @@ $xs.x800.decrypt = function (data, channel) {
 $xs.x711 = new Object()
 $xs.x711.encrypt = function(data) {
     try {
-        $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.0.0\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\n###\nBEGIN ENCRYPTED MESSAGE\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT")
+        $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.1.0\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\n###\nBEGIN ENCRYPTED MESSAGE\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT")
         $enc.encs2 = btoa($enc.encs1)
-        return $enc.encs2
+        alert($enc.encs2)
         // $enc.dencs2 = atob($enc.encs2)
         // $enc.dencs4 = join($enc.dencs2)
 
@@ -64,7 +64,7 @@ $xs.x711.decrypt = function(data) {
     try {
         $enc.dencs2 = atob(data)
         $enc.dencs4 = join($enc.dencs2)
-        return $enc.dencs4
+        alert($enc.dencs4)
     } catch (e) {
         alert("An error occured while decrypting. This may be because you are missing a letter, the message contains invalid characters, or a programming error. See the console for details.")
         Console.warn("XsChat ran into error: " + e)

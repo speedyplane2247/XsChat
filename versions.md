@@ -72,3 +72,19 @@ This update adds a user-defined password, getting rid of the 'Channels'. This is
 This update introduces the new versioning system in the what is supported, and fixes a key security vulnerability with shorter passwords. This also fixes 7.1.2 and 7.1.1 backwords compatibility.
 ## 8.1.1a
 This update simply changes the name of "index.html" to be more user friendly.
+## 8.1.2
+8.1.2 adds more stability and also hides the password by default.
+## 8.1.3
+8.1.3 converts the CSS style to RGB rather than HEX for easier customization.
+## 8.1.4 Beta
+8.1.4 added a "No Password" checkbox, but was removed.
+## 8.2.0 Beta
+8.2.0 was supposed to add a lot more customization, but due to the primary form of distrobution still running as "file://", cookies can't be saved.
+## 8.2.0
+8.2.0 adds another KeyChain Update (1.4), a new algorithm, and Chrome support.
+## 8.2.0 LTS
+8.2.0 LTS adds 5.x support. Not publically available.
+## 7.1.4
+This is an enterprise release. It is based on 7.1.x, but with password support.
+## 8.2.0 XND Beta
+The XNR is the auto-updater branch (Cross Network Downloader). 

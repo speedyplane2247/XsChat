@@ -92,3 +92,9 @@ The XNR is the auto-updater branch (Cross Network Downloader).
 This is the red colour scheme edition.
 ## 8.2.0b
 This is the green colour scheme edition.
+## 8.3.0
+8.3 removes the headers from being visible, but they are still transmitted. It also introdouces the auto-updater, and native color customziation.
+## 7.2.0
+7.2 is the latest LTS release.
+## 8.3.1
+8.3.1 fixes Safari support.

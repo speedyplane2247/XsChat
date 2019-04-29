@@ -88,3 +88,7 @@ This update simply changes the name of "index.html" to be more user friendly.
 This is an enterprise release. It is based on 7.1.x, but with password support.
 ## 8.2.0 XND Beta
 The XNR is the auto-updater branch (Cross Network Downloader). 
+## 8.2.0a
+This is the red colour scheme edition.
+## 8.2.0b
+This is the green colour scheme edition.

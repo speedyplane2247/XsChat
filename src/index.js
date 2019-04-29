@@ -6,7 +6,7 @@ var $xsui = new Object()
 var $enc = new Object()
 var $xs = new Object()
 $xs.version = "XsChat 8.2.0\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.3.1"
-$xs.cver = "813"
+$xs.cver = "820b"
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -21,7 +21,7 @@ xhttp.send();
 
 $xs.x800 = new Object()
 $xs.x800.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.2.0\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.2.0b\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel + "\nCUSTOMIZEDCLIENT=TRUE\nLEGALLYCUSTOMIZED=TRUE")
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs2 = btoa($enc.encs21)

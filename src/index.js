@@ -7,14 +7,14 @@ var $enc = new Object()
 var $xs = new Object()
 var $xssigning = new Object()
 $xssigning.ignoreSign = false
-$xs.version = "XsChat 8.3.2\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.4"
+$xs.version = "XsChat 8.3.3\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.4"
 $xs.isSafari = false
 if (navigator.userAgent.indexOf("Safari") != -1) {
 $xs.isSafari = true
 }
 
 
-$xs.cver = "832"
+$xs.cver = "833"
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -29,7 +29,7 @@ xhttp.send();
 
 $xs.x800 = new Object()
 $xs.x800.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.2\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel + "\nTIMEOFDAY"+ Date.now)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.3\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel + "\nTIMEOFDAY"+ Date.now)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs2 = btoa($enc.encs21)
@@ -66,7 +66,7 @@ $xs.x800.decrypt = function(data, channel) {
 }
 $xs.x820 = new Object()
 $xs.x820.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.2\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel+ "\nTIMEOFDAY="+Date.now)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.3\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel+ "\nTIMEOFDAY="+Date.now)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs22 = btoa($enc.encs21)
@@ -240,6 +240,16 @@ function erun() {
         //  }
 
     }
+    if ($xs.data == "x832") {
+        $xs.ver = "x832"
+        // if ($xs.eord == "e") {
+        $xs.x832.encrypt($xs.msg, $xs.channel)
+        //  }
+        //  if ($xs.eord == "d") {
+        //     alert($xs.x712.decrypt($xs.msg))
+        //  }
+
+    }
 
 }
 
@@ -274,6 +284,16 @@ function drun() {
         $xs.ver = "x20"
         // if ($xs.eord == "e") {
         $xs.x820.decrypt($xs.msg, $xs.channel)
+        //  }
+        //  if ($xs.eord == "d") {
+        //     alert($xs.x712.decrypt($xs.msg))
+        //  }
+
+    }
+    if ($xs.data == "x832") {
+        $xs.ver = "x832"
+        // if ($xs.eord == "e") {
+        $xs.x832.decrypt($xs.msg, $xs.channel)
         //  }
         //  if ($xs.eord == "d") {
         //     alert($xs.x712.decrypt($xs.msg))

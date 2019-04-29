@@ -1,18 +1,20 @@
 // XsChat 8 Client
 // (c) speedyplane2247 2019
-// Version: 8.3.0
+// Version: 8.3.2
 var sheet = window.document.styleSheets[0];
 var $xsui = new Object()
 var $enc = new Object()
 var $xs = new Object()
-$xs.version = "XsChat 8.3.1\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.4"
+var $xssigning = new Object()
+$xssigning.ignoreSign = false
+$xs.version = "XsChat 8.3.2\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.4"
 $xs.isSafari = false
 if (navigator.userAgent.indexOf("Safari") != -1) {
 $xs.isSafari = true
 }
 
 
-$xs.cver = "831"
+$xs.cver = "832"
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -27,7 +29,7 @@ xhttp.send();
 
 $xs.x800 = new Object()
 $xs.x800.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.1\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.2\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel + "\nTIMEOFDAY"+ Date.now)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs2 = btoa($enc.encs21)
@@ -64,7 +66,7 @@ $xs.x800.decrypt = function(data, channel) {
 }
 $xs.x820 = new Object()
 $xs.x820.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.1\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.2\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel+ "\nTIMEOFDAY="+Date.now)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs22 = btoa($enc.encs21)
@@ -79,6 +81,40 @@ $xs.x820.decrypt = function(data, channel) {
         $enc.dencs10 = atob($enc.dencs2)
         $enc.dencs5 = atob($enc.dencs10)
         $enc.dencs11 = atob($enc.dencs5)
+
+        $enc.dencs4 = join($enc.dencs11)
+        if ($enc.dencs4.indexOf("pass***!=" + channel) == -1) {
+            alert("An error occured while decrypting. Are you using the correct password or version?")
+        } else {
+            $enc.dencs5 = $enc.dencs4.split("pass***!=")
+            $enc.dencs6 = $enc.dencs5[0].split("\nBEGIN ENCRYPTED MESSAGE\n###\n")
+            $enc.dencs7 = $enc.dencs6[1].split("\n###\nEND ENCRYPTED MESSAGE\n##LEGACY")
+            prompt("Here is your message!", $enc.dencs7[0])
+        }
+    } catch (e) {
+        alert("An error occured while decrypting. This may be because you are missing a letter, the message contains invalid characters, or a programming error. See the console for details.")
+        Console.warn("XsChat ran into error: " + e)
+    }
+}
+$xs.x832 = new Object()
+$xs.x832.encrypt = function(data, channel) {
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.2\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel+ "\nTIMEOFDAY="+Date.now)
+    $enc.encs20 = btoa($enc.encs1)
+    $enc.encs21 = btoa($enc.encs20)
+    $enc.encs22 = btoa($enc.encs21)
+    $enc.encs23 = btoa($enc.encs22)
+    $enc.encs2 = btoa($enc.encs23)
+     
+    //
+    prompt("Here is your message!", $enc.encs2)
+}
+$xs.x832.decrypt = function(data, channel) {
+    try {
+        $enc.dencs2 = atob(data)
+        $enc.dencs10 = atob($enc.dencs2)
+        $enc.dencs5 = atob($enc.dencs10)
+        $enc.dencs15 = atob($enc.dencs5)
+        $enc.dencs11 = atob($enc.dencs15)
 
         $enc.dencs4 = join($enc.dencs11)
         if ($enc.dencs4.indexOf("pass***!=" + channel) == -1) {

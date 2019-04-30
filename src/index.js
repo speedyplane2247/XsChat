@@ -1,13 +1,14 @@
 // XsChat 8 Client
 // (c) speedyplane2247 2019
-// Version: 8.3.2
+// Version: 8.3.4
 var sheet = window.document.styleSheets[0];
 var $xsui = new Object()
 var $enc = new Object()
 var $xs = new Object()
+var $date = Date()
 var $xssigning = new Object()
 $xssigning.ignoreSign = false
-$xs.version = "XsChat 8.3.3\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.4"
+$xs.version = "XsChat 8.3.4\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.4.1"
 $xs.isSafari = false
 if (navigator.userAgent.indexOf("Safari") != -1) {
 $xs.isSafari = true
@@ -29,7 +30,7 @@ xhttp.send();
 
 $xs.x800 = new Object()
 $xs.x800.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.3\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel + "\nTIMEOFDAY"+ Date.now)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.4\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel + "\nTIMEOFDAY"+ Date.now)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs2 = btoa($enc.encs21)
@@ -66,7 +67,7 @@ $xs.x800.decrypt = function(data, channel) {
 }
 $xs.x820 = new Object()
 $xs.x820.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.3\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.4\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs22 = btoa($enc.encs21)
@@ -98,7 +99,7 @@ $xs.x820.decrypt = function(data, channel) {
 }
 $xs.x832 = new Object()
 $xs.x832.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.2\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.4\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\nCurrentDate="+$date+"\npass***!=" + channel)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs22 = btoa($enc.encs21)

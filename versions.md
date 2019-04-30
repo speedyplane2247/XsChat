@@ -104,4 +104,9 @@ This is the green colour scheme edition.
 8.3.3. adds the UI elements of the new algorithm after testing using the command line.
 ## 8.3.4
 8.3.4 is a hotfix to the date checker.
-## 8.3.4
+## 8.4.0
+8.4 adds a new lighter algorithm that includes encoded splicing.
+## 8.4 Hotfix #1
+This was to fix the buttons not being linked to the UI, but the wrong version was uploadded
+## 8.4 Hotfix #2
+This actcually fixed the error of UI not being attached to the backend.

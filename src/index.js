@@ -66,7 +66,7 @@ $xs.x800.decrypt = function(data, channel) {
 }
 $xs.x820 = new Object()
 $xs.x820.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.3\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel+ "\nTIMEOFDAY="+Date.now)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.3\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs22 = btoa($enc.encs21)
@@ -98,7 +98,7 @@ $xs.x820.decrypt = function(data, channel) {
 }
 $xs.x832 = new Object()
 $xs.x832.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.2\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel+ "\nTIMEOFDAY="+Date.now)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.2\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs22 = btoa($enc.encs21)

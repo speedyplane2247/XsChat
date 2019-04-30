@@ -98,3 +98,10 @@ This is the green colour scheme edition.
 7.2 is the latest LTS release.
 ## 8.3.1
 8.3.1 fixes Safari support.
+## 8.3.2
+8.3.2 adds a new un-used algorithm.
+## 8.3.3
+8.3.3. adds the UI elements of the new algorithm after testing using the command line.
+## 8.3.4
+8.3.4 is a hotfix to the date checker.
+## 8.3.4

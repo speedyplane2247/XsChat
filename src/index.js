@@ -1,6 +1,6 @@
 // XsChat 8 Client
 // (c) speedyplane2247 2019
-// Version: 8.3.4
+// Version: 8.4.0
 var sheet = window.document.styleSheets[0];
 var $xsui = new Object()
 var $enc = new Object()
@@ -8,14 +8,14 @@ var $xs = new Object()
 var $date = Date()
 var $xssigning = new Object()
 $xssigning.ignoreSign = false
-$xs.version = "XsChat 8.3.4\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.4.1"
+$xs.version = "XsChat 8.4.0\nEngine: 9.0.0\nUI: 2.0\nKeychain: 1.4.1"
 $xs.isSafari = false
 if (navigator.userAgent.indexOf("Safari") != -1) {
 $xs.isSafari = true
 }
 
 
-$xs.cver = "834"
+$xs.cver = "840"
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -50,7 +50,7 @@ $xs.x800.decrypt = function(data, channel) {
 
         $enc.dencs4 = join($enc.dencs11)
         if ($enc.dencs4.indexOf("pass***!=" + channel) == -1) {
-            alert("An error occured while decrypting. Are you using the correct password or version?")
+            alert("Incorrect Password!")
         } else {
             $enc.dencs5 = $enc.dencs4.split("pass***!=")
             $enc.dencs6 = $enc.dencs5[0].split("\nBEGIN ENCRYPTED MESSAGE\n###\n")
@@ -62,12 +62,12 @@ $xs.x800.decrypt = function(data, channel) {
         }
     } catch (e) {
         alert("An error occured while decrypting. This may be because you are missing a letter, the message contains invalid characters, or a programming error. See the console for details.")
-        Console.warn("XsChat ran into error: " + e)
+        console.warn("XsChat ran into error: " + e)
     }
 }
 $xs.x820 = new Object()
 $xs.x820.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.4\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.4.0\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\npass***!=" + channel)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs22 = btoa($enc.encs21)
@@ -85,7 +85,7 @@ $xs.x820.decrypt = function(data, channel) {
 
         $enc.dencs4 = join($enc.dencs11)
         if ($enc.dencs4.indexOf("pass***!=" + channel) == -1) {
-            alert("An error occured while decrypting. Are you using the correct password or version?")
+            alert("Incorrect Password!")
         } else {
             $enc.dencs5 = $enc.dencs4.split("pass***!=")
             $enc.dencs6 = $enc.dencs5[0].split("\nBEGIN ENCRYPTED MESSAGE\n###\n")
@@ -94,12 +94,12 @@ $xs.x820.decrypt = function(data, channel) {
         }
     } catch (e) {
         alert("An error occured while decrypting. This may be because you are missing a letter, the message contains invalid characters, or a programming error. See the console for details.")
-        Console.warn("XsChat ran into error: " + e)
+        console.warn("XsChat ran into error: " + e)
     }
 }
 $xs.x832 = new Object()
 $xs.x832.encrypt = function(data, channel) {
-    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.3.4\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\nCurrentDate="+$date+"\npass***!=" + channel)
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.4.0\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\nCurrentDate="+$date+"\npass***!=" + channel)
     $enc.encs20 = btoa($enc.encs1)
     $enc.encs21 = btoa($enc.encs20)
     $enc.encs22 = btoa($enc.encs21)
@@ -119,7 +119,7 @@ $xs.x832.decrypt = function(data, channel) {
 
         $enc.dencs4 = join($enc.dencs11)
         if ($enc.dencs4.indexOf("pass***!=" + channel) == -1) {
-            alert("An error occured while decrypting. Are you using the correct password or version?")
+            alert("Incorrect Password!")
         } else {
             $enc.dencs5 = $enc.dencs4.split("pass***!=")
             $enc.dencs6 = $enc.dencs5[0].split("\nBEGIN ENCRYPTED MESSAGE\n###\n")
@@ -128,7 +128,38 @@ $xs.x832.decrypt = function(data, channel) {
         }
     } catch (e) {
         alert("An error occured while decrypting. This may be because you are missing a letter, the message contains invalid characters, or a programming error. See the console for details.")
-        Console.warn("XsChat ran into error: " + e)
+        console.warn("XsChat ran into error: " + e)
+    }
+}
+$xs.x840 = new Object()
+$xs.x840.encrypt = function(data, channel) {
+    $enc.encs1 = split("###\nBEGIN ENCRYPTED HEADER\nClient=8.4.0\nLegacy=TRUE\nEND ENCRYPTED HEADER\n###\nBEGIN ENCRYPTED MESSAGE\n###\n" + data + "\n###\nEND ENCRYPTED MESSAGE\n##LEGACY\n#XSCHAT8COMPATMODE=TRUE\n###\nEND FULL TEXT\nCurrentDate="+$date+"\npass***!=" + channel)
+    $enc.encs20 = btoa($enc.encs1)
+   // $enc.encs23 = btoa($enc.encs20)
+    $enc.encs2 = btoa($enc.encs20)
+    $enc.encs4 = split($enc.encs2)
+    //
+    prompt("Here is your message!", $enc.encs4)
+}
+$xs.x840.decrypt = function(data, channel) {
+    try {
+        xdata = join(data)
+        $enc.dencs2 = atob(xdata)
+    //    $enc.dencs10 = atob($enc.dencs10)
+        $enc.dencs11 = atob($enc.dencs2)
+
+        $enc.dencs4 = join($enc.dencs11)
+        if ($enc.dencs4.indexOf("pass***!=" + channel) == -1) {
+            alert("Incorrect Password!")
+        } else {
+            $enc.dencs5 = $enc.dencs4.split("pass***!=")
+            $enc.dencs6 = $enc.dencs5[0].split("\nBEGIN ENCRYPTED MESSAGE\n###\n")
+            $enc.dencs7 = $enc.dencs6[1].split("\n###\nEND ENCRYPTED MESSAGE\n##LEGACY")
+            prompt("Here is your message!", $enc.dencs7[0])
+        }
+    } catch (e) {
+        alert("An error occured while decrypting. This may be because you are missing a letter, the message contains invalid characters, or a programming error. See the console for details.")
+        console.warn("XsChat ran into error: " + e)
     }
 }
 
@@ -143,7 +174,7 @@ $xs.x711.encrypt = function(data) {
 
     } catch (e) {
         alert("An error occured while encrypting. This may be because of invalid characters in your statement. See the console for details.")
-        Console.warn("XsChat ran into error: " + e)
+        console.warn("XsChat ran into error: " + e)
     }
 }
 $xs.x711.decrypt = function(data) {
@@ -153,7 +184,7 @@ $xs.x711.decrypt = function(data) {
         prompt("Here is your message!", $enc.dencs4)
     } catch (e) {
         alert("An error occured while decrypting. This may be because you are missing a letter, the message contains invalid characters, or a programming error. See the console for details.")
-        Console.warn("XsChat ran into error: " + e)
+        console.warn("XsChat ran into error: " + e)
     }
 }
 $xs.x712 = new Object();
@@ -169,7 +200,7 @@ $xs.x712.encrypt = function(data) {
 
     } catch (e) {
         alert("An error occured while encrypting. This may be because of invalid characters in your statement. See the console for details.")
-        Console.warn("XsChat ran into error: " + e)
+        console.warn("XsChat ran into error: " + e)
     }
 }
 $xs.x712.decrypt = function(data) {
@@ -251,6 +282,16 @@ function erun() {
         //  }
 
     }
+    if ($xs.data == "x840") {
+        $xs.ver = "x840"
+        // if ($xs.eord == "e") {
+        $xs.x840.encrypt($xs.msg, $xs.channel)
+        //  }
+        //  if ($xs.eord == "d") {
+        //     alert($xs.x712.decrypt($xs.msg))
+        //  }
+
+    }
 
 }
 
@@ -295,6 +336,16 @@ function drun() {
         $xs.ver = "x832"
         // if ($xs.eord == "e") {
         $xs.x832.decrypt($xs.msg, $xs.channel)
+        //  }
+        //  if ($xs.eord == "d") {
+        //     alert($xs.x712.decrypt($xs.msg))
+        //  }
+
+    }
+    if ($xs.data == "x840") {
+        $xs.ver = "x840"
+        // if ($xs.eord == "e") {
+        $xs.x840.decrypt($xs.msg, $xs.channel)
         //  }
         //  if ($xs.eord == "d") {
         //     alert($xs.x712.decrypt($xs.msg))
